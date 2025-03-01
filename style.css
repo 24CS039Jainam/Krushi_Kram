@@ -124,3 +124,16 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+/* Style for the typing container */
+.typing-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Style for the typing text */
+#typing-text {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2em;
+    display: inline-block;
+}
