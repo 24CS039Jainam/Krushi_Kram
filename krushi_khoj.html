@@ -55,7 +55,7 @@
 
 <div class="result" id="result"></div>
 <canvas id="budgetChart"></canvas>
-
+<div class="boxes">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 function generateReport() {
@@ -71,62 +71,45 @@ function generateReport() {
 
     switch (season) {
         case 'spring':
-            recommendedCrops = 'Spring is ideal for planting vegetables and fruits that thrive in warmer weather. Consider planting crops like tomatoes, cucumbers, lettuce, and peppers.';
-            fertilizerSuggestions = 'For spring crops, use a balanced fertilizer like 10-10-10 or a compost-based fertilizer to promote healthy growth and fruit development.';
+            recommendedCrops = 'Spring is ideal for planting tomatoes, cucumbers, lettuce, and peppers.';
+            fertilizerSuggestions = 'Use a balanced fertilizer like 10-10-10 or compost-based fertilizer.';
             break;
         case 'summer':
-            recommendedCrops = 'In summer, focus on heat-tolerant crops. Corn, beans, and melons are excellent choices. Ensure proper irrigation to manage the heat.';
-            fertilizerSuggestions = 'A slow-release nitrogen fertilizer or a high-phosphorus fertilizer will be beneficial for summer crops to enhance growth and yield.';
+            recommendedCrops = 'Best crops: Corn, beans, melons. Ensure proper irrigation.';
+            fertilizerSuggestions = 'Use slow-release nitrogen or high-phosphorus fertilizer.';
             break;
         case 'fall':
-            recommendedCrops = 'Fall is great for planting crops that can handle cooler temperatures. Consider planting spinach, kale, and other leafy greens.';
-            fertilizerSuggestions = 'Use a balanced or potassium-rich fertilizer to help your fall crops withstand the cooler temperatures and enhance root development.';
+            recommendedCrops = 'Ideal crops: Spinach, kale, leafy greens.';
+            fertilizerSuggestions = 'Use potassium-rich fertilizer for cooler temperatures.';
             break;
         case 'winter':
-            recommendedCrops = 'Winter is typically a time for planning and soil preparation. Use this time to plan your spring crops and enrich the soil with organic matter.';
-            fertilizerSuggestions = 'Prepare your soil with compost or well-rotted manure to ensure it’s ready for the upcoming planting season.';
+            recommendedCrops = 'Time for planning and soil preparation.';
+            fertilizerSuggestions = 'Use compost or well-rotted manure to enrich soil.';
             break;
     }
 
     // Creating Pie Chart
     const ctx = document.getElementById('budgetChart').getContext('2d');
+    document.getElementById('budgetChart').width = 300; // Reduce width
+    document.getElementById('budgetChart').height = 300; // Reduce height
+
     new Chart(ctx, {
         type: 'pie',
         data: {
             labels: ['Seeds and Plants', 'Fertilizers', 'Equipment', 'Miscellaneous'],
             datasets: [{
-                label: 'Budget Allocation',
-                data: [
-                    budget * 0.4, // Seeds and Plants
-                    budget * 0.3, // Fertilizers
-                    budget * 0.2, // Equipment
-                    budget * 0.1  // Miscellaneous
-                ],
-                backgroundColor: [
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(153, 102, 255, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(255, 159, 64, 1)',
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(153, 102, 255, 1)'
-                ],
-                borderWidth: 1
+                data: [budget * 0.4, budget * 0.3, budget * 0.2, budget * 0.1],
+                backgroundColor: ['#4CAF50', '#FF9800', '#F44336', '#9C27B0'],
             }]
         },
         options: {
-            responsive: true,
+            responsive: false, // Prevent automatic resizing
+            maintainAspectRatio: false,
             plugins: {
-                legend: {
-                    position: 'top',
-                },
                 tooltip: {
                     callbacks: {
                         label: function(tooltipItem) {
-                            return tooltipItem.label + ': $' + tooltipItem.raw.toFixed(2);
+                            return tooltipItem.label + ': ₹' + tooltipItem.raw.toFixed(2);
                         }
                     }
                 }
@@ -135,23 +118,24 @@ function generateReport() {
     });
 
     // Detailed output
-    let resultText = ''; // Initialize resultText variable
-    resultText += `<p>Your region: ${region}</p>`;
-    resultText += `<p>Acreage of land available: ${acreage} acres</p>`;
-    resultText += `<p>Total budget: $${budget.toFixed(2)}</p>`;
-    resultText += `<p>Current season: ${season.charAt(0).toUpperCase() + season.slice(1)}</p>`;
-    resultText += `<p>${recommendedCrops}</p>`;
-    resultText += `<p>Recommended fertilizer: ${fertilizerSuggestions}</p>`;
-    resultText += `<p>Based on your budget allocation, we recommend focusing on essential areas first:</p>`;
-    resultText += `<ul><li>Seeds and Plants: $${(budget * 0.4).toFixed(2)}</li>`;
-    resultText += `<li>Fertilizers: $${(budget * 0.3).toFixed(2)}</li>`;
-    resultText += `<li>Equipment: $${(budget * 0.2).toFixed(2)}</li>`;
-    resultText += `<li>Miscellaneous: $${(budget * 0.1).toFixed(2)}</li></ul>`;
-    resultText += `<p>By prioritizing these areas, you will be well-prepared to optimize your crop yield and manage your resources effectively throughout the season.</p>`;
-
-    document.getElementById('result').innerHTML = resultText;
+    document.getElementById('result').innerHTML = `
+        <p>Your region: ${region}</p>
+        <p>Acreage of land available: ${acreage} acres</p>
+        <p>Total budget: ₹${budget.toFixed(2)}</p>
+        <p>Current season: ${season.charAt(0).toUpperCase() + season.slice(1)}</p>
+        <p>${recommendedCrops}</p>
+        <p>Recommended fertilizer: ${fertilizerSuggestions}</p>
+        <p>Budget Allocation:</p>
+        <ul>
+            <li>Seeds and Plants: ₹${(budget * 0.4).toFixed(2)}</li>
+            <li>Fertilizers: ₹${(budget * 0.3).toFixed(2)}</li>
+            <li>Equipment: ₹${(budget * 0.2).toFixed(2)}</li>
+            <li>Miscellaneous: ₹${(budget * 0.1).toFixed(2)}</li>
+        </ul>
+    `;
 }
 </script>
+</div>
 
 </body>
 </html>
