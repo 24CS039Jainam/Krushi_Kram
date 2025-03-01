@@ -1,47 +1,114 @@
-/* CSS File: styles.css */
+/* Global Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #fdf6ec;
-    color: #4a6c36;
+    font-family: 'Poppins', sans-serif;
     text-align: center;
     margin: 0;
     padding: 0;
+    background-color: #f4f4f4;
 }
 
+/* Header */
 header {
-    background-color: #4a6c36;
-    padding: 15px;
+    background: linear-gradient(90deg, #4CAF50, #2E7D32);
     color: white;
-    font-size: 24px;
+    padding: 20px;
+    font-size: 26px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* Rental Container */
 .rental-container {
     display: flex;
     flex-wrap: wrap;
+    gap: 25px;
     justify-content: center;
-    gap: 20px;
+    padding: 30px;
+}
+
+/* Machine Box (Card Design) */
+.machine-box {
+    background: white;
+    border-radius: 12px;
     padding: 20px;
-}
-
-.machine {
-    background: #fdf6ec;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    width: 250px;
+    width: 320px;
     text-align: center;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.machine img {
+.machine-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Machine Image */
+.machine-box img {
     width: 100%;
-    height: 150px;
-    border-radius: 5px;
-    object-fit: cover;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
 
-.total-price {
-    margin-top: 20px;
-    font-size: 1.5em;
+/* Titles */
+.machine-box h2 {
+    font-size: 22px;
+    color: #333;
+    margin: 10px 0;
+}
+
+/* Description */
+.machine-box p {
+    font-size: 16px;
+    color: #666;
+    margin: 5px 0;
+}
+
+/* Input & Select Styles */
+.machine-box select, 
+.machine-box input {
+    padding: 10px;
+    margin-top: 10px;
+    width: 90%;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+/* Rent Button */
+.machine-box button {
+    padding: 12px 20px;
+    background: linear-gradient(90deg, #4CAF50, #2E7D32);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
     font-weight: bold;
-    color: #4a6c36;
+    margin-top: 15px;
+    transition: background 0.3s ease;
+}
+
+.machine-box button:hover {
+    background: linear-gradient(90deg, #2E7D32, #1B5E20);
+}
+
+/* Total Price */
+.machine-box p[id$="-total"] {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4CAF50;
+    margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .rental-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .machine-box {
+        width: 90%;
+    }
 }

@@ -1,4 +1,3 @@
-<!-- HTML File: machinery-rental.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,63 +11,141 @@
         <h1>Rent Heavy Machinery</h1>
     </header>
     <section class="rental-container">
-        <div class="machine">
-            <img src="https://www.deere.co.in/assets/images/region-1/products/tractors/john-deere-d-series-tractor.jpg " alt="Tractor">
+        
+        <!-- Tractor -->
+        <div class="machine-box">
+            <img src="https://www.deere.co.in/assets/images/region-1/products/tractors/john-deere-d-series-tractor.jpg" alt="Tractor">
             <h2>Tractor</h2>
-            <p>Price: ₹2000 per day</p>
-            <p>Trader: Rajesh Agro Equipments</p>
+            <label for="tractor-company">Select Company:</label>
+            <select id="tractor-company">
+                <option value="2000" data-company="Rajesh Agro Equipments" data-owner="24cs015@charusat.edu.in">
+                    Rajesh Agro Equipments - ₹2000/day
+                </option>
+                <option value="2200" data-company="Green Harvest" data-owner="24cs030@charusat.edu.in">
+                    Green Harvest - ₹2200/day
+                </option>
+                <option value="2100" data-company="FarmTech Solutions" data-owner="24cs039@charusat.edu.in">
+                    FarmTech Solutions - ₹2100/day
+                </option>
+            </select>
             <label for="tractor-days">Days:</label>
             <input type="number" id="tractor-days" min="1" value="1">
-            <button onclick="calculateTotal('tractor', 2000)">Rent</button>
+            <button onclick="handleRent('tractor')">Rent</button>
+            <p id="tractor-total">Total: ₹0</p>
         </div>
-    
-        <div class="machine">
-            <img src="https://www.deere.com.au/assets/images/region-4/products/harvesting/STR_8279-S780-740D-1366x768.jpg " alt="Harvester">
+        
+        <!-- Harvester -->
+        <div class="machine-box">
+            <img src="https://www.deere.com.au/assets/images/region-4/products/harvesting/STR_8279-S780-740D-1366x768.jpg" alt="Harvester">
             <h2>Harvester</h2>
-            <p>Price: ₹5000 per day</p>
-            <p>Trader: Green Harvesters Ltd.</p>
+            <label for="harvester-company">Select Company:</label>
+            <select id="harvester-company">
+                <option value="5000" data-company="Green Harvesters" data-owner="24cs015@charusat.edu.in">
+                    Green Harvesters - ₹5000/day
+                </option>
+                <option value="5200" data-company="Agri Machinery" data-owner="24cs039@charusat.edu.in">
+                    Agri Machinery - ₹5200/day
+                </option>
+            </select>
             <label for="harvester-days">Days:</label>
             <input type="number" id="harvester-days" min="1" value="1">
-            <button onclick="calculateTotal('harvester', 5000)">Rent</button>
+            <button onclick="handleRent('harvester')">Rent</button>
+            <p id="harvester-total">Total: ₹0</p>
         </div>
-        <div class="machine">
+
+        <!-- Plough -->
+        <div class="machine-box">
             <img src="https://plus.unsplash.com/premium_photo-1661808606874-1fdc96c1a265?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGxvdWdoaW5nfGVufDB8fDB8fHww" alt="Plough">
             <h2>Plough</h2>
-            <p>Price: ₹1500 per day</p>
-            <p>Trader: Farmers' Choice</p>
+            <label for="plough-company">Select Company:</label>
+            <select id="plough-company">
+                <option value="1500" data-company="AgriTech Solutions" data-owner="24cs045@charusat.edu.in">
+                    AgriTech Solutions - ₹1500/day
+                </option>
+                <option value="1600" data-company="FarmPro" data-owner="24cs050@charusat.edu.in">
+                    FarmPro - ₹1600/day
+                </option>
+            </select>
             <label for="plough-days">Days:</label>
             <input type="number" id="plough-days" min="1" value="1">
-            <button onclick="calculateTotal('plough', 1500)">Rent</button>
+            <button onclick="handleRent('plough')">Rent</button>
+            <p id="plough-total">Total: ₹0</p>
         </div>
-        <!-- <div class="machine">
+
+        <!-- Seed Drill -->
+        <div class="machine-box">
             <img src="https://thumbs.dreamstime.com/b/modern-case-tractor-drilling-seed-field-vaderstad-drill-red-pulling-planting-new-front-hopper-combi-vadersad-fh-tempo-v-70255814.jpg?w=768" alt="Seed Drill">
             <h2>Seed Drill</h2>
-            <p>Price: ₹2500 per day</p>
-            <p>Trader: Precision Agri Tools</p>
+            <label for="seed-drill-company">Select Company:</label>
+            <select id="seed-drill-company">
+                <option value="1800" data-company="Agri Machinery Co." data-owner="24cs060@charusat.edu.in">
+                    Agri Machinery Co. - ₹1800/day
+                </option>
+                <option value="1900" data-company="Green Equipment" data-owner="24cs065@charusat.edu.in">
+                    Green Equipment - ₹1900/day
+                </option>
+            </select>
             <label for="seed-drill-days">Days:</label>
             <input type="number" id="seed-drill-days" min="1" value="1">
-            <button onclick="calculateTotal('seed-drill', 2500)">Rent</button>
-        </div> -->
-        <div class="machine">
+            <button onclick="handleRent('seed-drill')">Rent</button>
+            <p id="seed-drill-total">Total: ₹0</p>
+        </div>
+
+        <!-- Sprayer -->
+        <div class="machine-box">
             <img src="https://www.deere.com/assets/images/common/our-company/news/agriculture/2021mar02-john-deere-launches-see-and-spray-select-1-1366x768.jpg" alt="Sprayer">
             <h2>Sprayer</h2>
-            <p>Price: ₹1200 per day</p>
-            <p>Trader: AgriTech Solutions</p>
+            <label for="sprayer-company">Select Company:</label>
+            <select id="sprayer-company">
+                <option value="1200" data-company="CropCare Solutions" data-owner="24cs070@charusat.edu.in">
+                    CropCare Solutions - ₹1200/day
+                </option>
+                <option value="1300" data-company="SprayMaster" data-owner="24cs075@charusat.edu.in">
+                    SprayMaster - ₹1300/day
+                </option>
+            </select>
             <label for="sprayer-days">Days:</label>
             <input type="number" id="sprayer-days" min="1" value="1">
-            <button onclick="calculateTotal('sprayer', 1200)">Rent</button>
+            <button onclick="handleRent('sprayer')">Rent</button>
+            <p id="sprayer-total">Total: ₹0</p>
         </div>
 
     </section>
-    <div class="total-price" id="total-price">Total: ₹0</div>
-    
+
     <script>
-        function calculateTotal(machine, price) {
-            let days = document.getElementById(machine + '-days').value;
+        function handleRent(machine) {
+            let companySelect = document.getElementById(machine + "-company");
+            let selectedOption = companySelect.options[companySelect.selectedIndex];
+            
+            let price = parseInt(selectedOption.value);
+            let trader = selectedOption.getAttribute("data-company");
+            let ownerEmail = selectedOption.getAttribute("data-owner");
+            let days = document.getElementById(machine + "-days").value;
             let total = days * price;
-            document.getElementById('total-price').innerText = 'Total: ₹' + total;
+            
+            let confirmRent = confirm(`Are you sure you want to rent the ${machine} from ${trader} for ${days} days?\nTotal cost: ₹${total}`);
+            
+            if (confirmRent) {
+                sendEmail(machine, price, trader, days, total, ownerEmail);
+            } else {
+                alert(`Rental request for ${machine} was canceled.`);
+            }
+        }
+        
+        function sendEmail(machine, price, trader, days, total, ownerEmail) {
+            let subject = `Machinery Rental Request: ${machine}`;
+            let body = `Hello,\n\nI would like to rent the following machinery:\n\n` +
+                       `🚜 Machine: ${machine}\n` +
+                       `📅 Days: ${days}\n` +
+                       `💰 Price per Day: ₹${price}\n` +
+                       `💵 Total Price: ₹${total}\n` +
+                       `👨‍🌾 Trader: ${trader}\n\n` +
+                       `Please confirm the availability.\n\nThank you!`;
+            
+            window.location.href = `mailto:${ownerEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            alert(`Your rental request for ${machine} has been sent to ${ownerEmail}.`);
         }
     </script>
-    
 </body>
 </html>
