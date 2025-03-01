@@ -1,41 +1,52 @@
-// The slogans to be typed out
-const slogans = [
-    "Innovating the Future of Farming",
-    "Sowing the Seeds of Growth",
-    "Harvesting Opportunities for All",
-    "Smart Solutions for Sustainable Agriculture",
-    "Empowering Farmers, Enriching Lives",
-    "Your Partner in Agricultural Excellence"
-];
+document.addEventListener("DOMContentLoaded", function () {
+    // Load FastBots AI Chatbot
+    const botScript = document.createElement("script");
+    botScript.src = "https://app.fastbots.ai/embed.js";
+    botScript.setAttribute("data-bot-id", "cm7q71wwz11hdrik5rxeeobym");
+    botScript.defer = true;
+    document.body.appendChild(botScript);
 
-let sloganIndex = 0; // Keeps track of the current slogan
-let charIndex = 0;   // Keeps track of the current character in the slogan
-const typingElement = document.getElementById("typing-text");
+    // Corrected Slogans
+    const slogans = [
+        "Innovating the Future of Farming",
+        "Sowing the Seeds of Success",
+        "Harvesting a Brighter Tomorrow",
+        "Smart Solutions for Sustainable Farming",
+        "Empowering Farmers, Transforming Lives",
+        "Your Trusted Partner in Agriculture"
+    ];
 
-function typeWriter() {
-    if (charIndex < slogans[sloganIndex].length) {
-        typingElement.innerHTML += slogans[sloganIndex].charAt(charIndex);
-        charIndex++;
-        setTimeout(typeWriter, 100); // Adjust typing speed here (in milliseconds)
-    } else {
-        // After finishing one slogan, move to the next slogan
-        setTimeout(clearText, 500); // Wait before clearing the text
+    let sloganIndex = 0;
+    let charIndex = 0;
+    const typingElement = document.getElementById("typing-text");
+    let isDeleting = false;
+
+    function typeWriter() {
+        if (!typingElement) return; // Ensure the element exists
+
+        const currentSlogan = slogans[sloganIndex];
+        if (isDeleting) {
+            typingElement.textContent = currentSlogan.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            typingElement.textContent = currentSlogan.substring(0, charIndex + 1);
+            charIndex++;
+        }
+
+        let speed = isDeleting ? 50 : 100; // Typing speed (faster when deleting)
+
+        if (!isDeleting && charIndex === currentSlogan.length) {
+            speed = 2000; // Pause before deleting
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            sloganIndex = (sloganIndex + 1) % slogans.length; // Move to next slogan
+            speed = 500; // Pause before next typing cycle
+        }
+
+        setTimeout(typeWriter, speed);
     }
-}
 
-function clearText() {
-    // Clear the text and move to the next slogan
-    typingElement.innerHTML = '';
-    charIndex = 0; // Reset character index
-    sloganIndex++; // Move to the next slogan
-
-    if (sloganIndex >= slogans.length) {
-        sloganIndex = 0; // Loop back to the first slogan
-    }
-
-    // Start typing the next slogan
-    setTimeout(typeWriter, 500); // Wait before typing the next slogan
-}
-
-// Start typing effect when the page loads
-window.onload = typeWriter;
+    // Start typing effect
+    typeWriter();
+});
