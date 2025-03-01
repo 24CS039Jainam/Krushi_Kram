@@ -3,31 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gujarat Cities Grid</title>
+    <title>Krushi Bazaar - Farmer Services</title>
     <link rel="stylesheet" href="trade.css">
 </head>
 <body>
-    <div class="grid-container">
-        <div class="grid-item"><a href="ahmdyard.html">Ahmedabad</a></div>
-        <div class="grid-item"><a href="suratyard.html">Surat</a></div>
-        <div class="grid-item"><a href="#">Vadodara</a></div>
-        <div class="grid-item"><a href="#">Rajkot</a></div>
-        <div class="grid-item"><a href="#">Bhavnagar</a></div>
-        <div class="grid-item"><a href="#">Jamnagar</a></div>
-        <div class="grid-item"><a href="#">Gandhinagar</a></div>
-        <div class="grid-item"><a href="#">Junagadh</a></div>
-        <div class="grid-item"><a href="#">Anand</a></div>
-        <div class="grid-item"><a href="#">Morbi</a></div>
-        <div class="grid-item"><a href="#">Nadiad</a></div>
-        <div class="grid-item"><a href="#">Surendranagar</a></div>
-        <div class="grid-item"><a href="#">Bharuch</a></div>
-        <div class="grid-item"><a href="#">Mehsana</a></div>
-        <div class="grid-item"><a href="#">Navsari</a></div>
-        <div class="grid-item"><a href="#">Valsad</a></div>
-        <div class="grid-item"><a href="#">Porbandar</a></div>
-        <div class="grid-item"><a href="#">Godhra</a></div>
-        <div class="grid-item"><a href="#">Palanpur</a></div>
-        <div class="grid-item"><a href="#">Dahod</a></div>
+
+    <header>
+        <h1>🌾 Krushi Bazaar - Farmer Market</h1>
+        <p>Your trusted guide for real-time crop prices and traders</p>
+    </header>
+
+    <div class="container">
+        <label for="city">📍 Select City:</label>
+        <select id="city" onchange="updateYards()">
+            <option value="">-- Select City --</option>
+        </select>
+
+        <label for="yard">🏢 Select Marketing Yard:</label>
+        <select id="yard">
+            <option value="">-- Select Yard --</option>
+        </select>
+
+        <button onclick="getTraders()">🔍 Get Traders</button>
     </div>
+
+    <div class="table-container">
+        <table id="traderTable">
+            <thead>
+                <tr>
+                    <th>Trader Name</th>
+                    <th>Contact</th>
+                    <th>Crops & Prices (per KG)</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <footer>
+        <p>🌱 Empowering Farmers with Market Insights | Krushi Bazaar © 2025</p>
+    </footer>
+
+    <script src="trade.js"></script>
 </body>
 </html>
