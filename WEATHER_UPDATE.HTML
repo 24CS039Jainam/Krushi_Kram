@@ -3,111 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farmers' Weather Report</title>
-    <link rel="stylesheet" href="weather.css">
-    <!-- Link to Google Fonts for enhanced typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>Gujarat City Weather</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body backgroundcolor="black">
-    <!-- Header Section -->
-    <header>
-        <div class="container">
-            <h1>Krushi's Weather Report</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact_US.html">Contact</a></li>
-                    <li><a href="Ecom.html">E-commerce</a></li>
-                    <li><a href="market_insights.html">Market Insights</a></li>
-                    <li><a href="community_support.html">Community Support</a></li>
-                    <li><a href="krushi_yojna.html">Krushi Yojna</a></li>
-                    <li><a href="Krushi_bot.html">Krusi's AI Chat Bot</a>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<body class="flex flex-col items-center p-8 bg-gradient-to-r from-blue-900 to-purple-700 min-h-screen">
+    
+    <h2 class="text-white text-4xl font-bold mb-6">🌎 Gujarat City Weather</h2>
 
-    <!-- Main Content Section -->
-    <main>
-        <section class="weather-section">
-            <div class="container">
-               
-                
+    <!-- User Input City -->
+    <div class="flex flex-col items-center space-y-4 mb-6">
+        <input type="text" id="city-input" placeholder="Enter city name..." class="p-3 rounded-lg shadow-md w-72 text-black">
+        <button onclick="searchCityWeather()" class="bg-green-500 px-6 py-2 rounded-lg text-white font-bold hover:bg-green-600">
+            Search City 🔍
+        </button>
+    </div>
 
-                <!-- Weather Card 1 -->
-                <article class="weather-card">
-                    <img src="https://media.istockphoto.com/id/1007768414/photo/blue-sky-with-bright-sun-and-clouds.jpg?s=612x612&w=0&k=20&c=MGd2-v42lNF7Ie6TtsYoKnohdCfOPFSPQt5XOz4uOy4=">
-                    <div class="weather-info">
-                        <h3>Sunny</h3>
-                        <p class="temperature">Temperature: 30°C / 86°F</p>
-                        <p class="humidity">Humidity: 40%</p>
-                        <p class="wind-speed">Wind Speed: 10 km/h</p>
-                        <p class="summary">Clear skies with abundant sunshine, perfect for harvesting activities. Ensure adequate hydration for crops.</p>
-                    </div>
-                </article>
+    <!-- Search Result -->
+    <div id="search-result" class="w-full max-w-6xl text-center mb-6"></div>
 
-                <!-- Weather Card 2 -->
-                <article class="weather-card">
-                    <img src="https://media.istockphoto.com/id/1257951336/photo/transparent-umbrella-under-rain-against-water-drops-splash-background-rainy-weather-concept.jpg?s=612x612&w=0&k=20&c=lNvbIw1wReb-owe7_rMgW8lZz1zElqs5BOY1AZhyRXs=" alt="Rainy Weather">
-                    <div class="weather-info">
-                        <h3>Rainy</h3>
-                        <p class="temperature">Temperature: 22°C / 72°F</p>
-                        <p class="humidity">Humidity: 90%</p>
-                        <p class="wind-speed">Wind Speed: 15 km/h</p>
-                        <p class="summary">Expect showers throughout the day. Monitor soil moisture levels and plan irrigation accordingly.</p>
-                    </div>
-                </article>
+    <!-- Refresh Button -->
+    <button id="refresh-btn" class="mb-4 px-6 py-2 bg-yellow-500 text-white rounded-lg font-bold hover:bg-yellow-600">
+        Refresh Weather 🔄
+    </button>
 
-                <!-- Weather Card 3 -->
-                <article class="weather-card">
-                    <img src="https://media.istockphoto.com/id/512218646/photo/storm-sky-rain.jpg?s=612x612&w=0&k=20&c=RoUDM9BMwqW8NkPXjzAzlDKCHPOmdZhmmeT3jGA2EaM=" alt="Cloudy Weather">
-                    <div class="weather-info">
-                        <h3>Cloudy</h3>
-                        <p class="temperature">Temperature: 25°C / 77°F</p>
-                        <p class="humidity">Humidity: 70%</p>
-                        <p class="wind-speed">Wind Speed: 5 km/h</p>
-                        <p class="summary">Overcast conditions with a slight chance of rain. Suitable for pest control and fertilization.</p>
-                    </div>
-                </article>
+    <!-- Weather Display -->
+    <div id="weather-container" class="w-full max-w-6xl">
+        Loading...
+    </div>
 
-                <!-- Weather Card 4 -->
-                <article class="weather-card">
-                    <img src="https://media.istockphoto.com/id/1413876271/photo/lightning-strike-in-a-thunderstorm.jpg?s=612x612&w=0&k=20&c=TZhuf1H_qbJbiY14YwGvnMEMjF8cw0CQ1TJjGQ-tBGE=" alt="Stormy Weather">
-                    <div class="weather-info">
-                        <h3>Stormy</h3>
-                        <p class="temperature">Temperature: 18°C / 64°F</p>
-                        <p class="humidity">Humidity: 95%</p>
-                        <p class="wind-speed">Wind Speed: 30 km/h</p>
-                        <p class="summary">Severe weather conditions expected with high winds and thunderstorms. Secure equipment and livestock.</p>
-                    </div>
-                </article>
-
-                <!-- Weather Card 5 -->
-                <article class="weather-card">
-                    <img src="https://wjla.com/resources/media2/16x9/full/1015/center/80/be94f27f-c70a-4e6c-b3cc-9a448da929b8-large16x9_SnowfallsinEllicottCityVeronicaJohnson.JPG" alt="Snowy Weather">
-                    <div class="weather-info">
-                        <h3>Snowy</h3>
-                        <p class="temperature">Temperature: -2°C / 28°F</p>
-                        <p class="humidity">Humidity: 80%</p>
-                        <p class="wind-speed">Wind Speed: 20 km/h</p>
-                        <p class="summary">Snowfall predicted, with low temperatures affecting crop growth. Consider protective measures.</p>
-                    </div>
-                </article>
-
-            
-
-                <!-- Add more weather cards as needed -->
-
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer Section -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Krushi Kram. All Rights Reserved.</p>
-        </div>
-    </footer>
+    <script src="weather.js"></script> <!-- Link JavaScript file -->
 </body>
 </html>
