@@ -1,5 +1,14 @@
 /* General Styles */
 body {
+        overflow-x: hidden;
+        width: 100%;
+        overflow-y: scroll; /* Enables scrolling */
+        scrollbar-width: none;
+        
+        
+        
+    
+    
     font-family: Arial, sans-serif;
     background-color: #1b1b1b;
     color: #e0e0e0;
@@ -8,6 +17,9 @@ body {
     line-height: 1.6;
 }
 
+html::-webkit-scrollbar {
+    display: none; /* Hides scrollbar in Chrome, Safari, Edge */
+}
 a {
     color: #f4a261;
     text-decoration: none;
@@ -129,6 +141,7 @@ footer {
 .typing-container {
     text-align: center;
     margin-top: 50px;
+    
 }
 
 /* Style for the typing text */
