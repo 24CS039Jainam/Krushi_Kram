@@ -1,0 +1,152 @@
+/* e-commerce.css */
+
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* Header styling */
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+header h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Main section styling */
+main {
+    padding: 20px 0;
+}
+
+.ecommerce-section {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.ecommerce-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Product grid styling */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.product-info {
+    padding: 15px;
+}
+
+.product-info h3 {
+    margin: 10px 0;
+}
+
+.product-info .price {
+    font-size: 1.2em;
+    color: black;
+    margin: 5px 0;
+}
+
+.product-info p {
+    margin-bottom: 15px;
+}
+
+.add-to-cart {
+    background-color: black;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: black;
+}
+
+/* Footer styling */
+footer {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+}

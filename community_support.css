@@ -1,0 +1,248 @@
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+nav ul {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 0 0;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #e8f5e9;
+}
+
+/* Support Section */
+.support-section {
+    padding: 60px 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.support-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.support-section .intro {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+/* Program Cards */
+.programs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.program-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 370px;
+    flex: 1 1 300px;
+    margin-bottom: 30px;
+}
+
+.program-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.program-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.program-content {
+    padding: 20px;
+    text-align: left;
+}
+
+.program-content h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.program-content p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.learn-more {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.learn-more:hover {
+    background-color: #333333;
+}
+
+/* Testimonial Section */
+.testimonial-section {
+    padding: 60px 0;
+    background-color: #333333;
+    text-align: center;
+}
+
+.testimonial-section h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.testimonials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.testimonial-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 300px;
+    flex: 1 1 250px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.quote {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.author {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    text-align: right;
+}
+
+/* Call to Action Section */
+.cta-section {
+    padding: 60px 0;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.cta-section p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    color: #e8f5e9;
+}
+
+.join-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #fff;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: bold;
+}
+
+.join-button:hover {
+    background-color: black;
+    color: #fff;
+}
+
+/* Footer */
+footer {
+    background:black;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 30px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}

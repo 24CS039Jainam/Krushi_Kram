@@ -1,0 +1,126 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1b1b1b;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+a {
+    color: #f4a261;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header */
+header {
+
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    color: #5A9F68;
+    font-size: xx-large;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    font-weight: bold;
+    color: #e0e0e0;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('farm-background.jpg'); /* Replace with your own image */
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    text-align: center;
+    color: #e0e0e0;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 1.2rem;
+}
+
+/* Content Section */
+.content {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.content h3 {
+    color: #5A9F68;
+}
+
+.content p {
+    color: #cccccc;
+}
+
+/* Products Section */
+.products {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.products h3 {
+    color: #5A9F68;
+    text-align: center;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product-item {
+   
+    text-align: center;
+}
+
+.product-item h4 {
+    color: #5A9F68;
+    margin: 0 0 10px 0;
+}
+
+.product-item p {
+    color: #cccccc;
+}
+
+/* Footer */
+footer {
+ 
+    text-align: center;
+    padding: 20px;
+    color: #e0e0e0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

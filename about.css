@@ -1,0 +1,150 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f4f4f4;
+    b
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    background:BLACK;
+    color: WHITE;
+    padding: 20px 0;
+}
+
+header h1 {
+    text-align: center;
+    margin: 0;
+}
+
+nav ul {
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #e8f5e9;
+}
+
+/* Contact Section */
+.contact {
+    padding: 40px 0;
+    background: #fff;
+}
+
+.contact .container {
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+.contact h2 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: black2;
+}
+
+.contact p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.contact label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.contact input[type="text"],
+.contact input[type="email"],
+.contact textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.contact input[type="text"]:focus,
+.contact input[type="email"]:focus,
+.contact textarea:focus {
+    border-color:black;
+    outline: none;
+}
+
+.contact textarea {
+    resize: vertical;
+    min-height: 100px;
+    max-height: 300px;
+}
+
+.contact button[type="submit"] {
+    padding: 10px 20px;
+    background:black;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s ease;
+}
+
+.contact button[type="submit"]:hover {
+    background: #333;
+}
+
+.contact #formMessage {
+    display: none;
+    margin-top: 20px;
+    color: #3333;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+h2{
+    text
+}

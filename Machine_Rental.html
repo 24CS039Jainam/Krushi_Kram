@@ -1,0 +1,71 @@
+<!-- HTML File: machinery-rental.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machinery Rental</title>
+    <link rel="stylesheet" href="Machine_Rental.css">
+</head>
+<body>
+    <header>
+        <h1>Rent Heavy Machinery</h1>
+    </header>
+    <section class="rental-container">
+        <div class="machine">
+            <img src="tractor.jpg" alt="Tractor">
+            <h2>Tractor</h2>
+            <p>Price: ₹2000 per day</p>
+            <p>Trader: Rajesh Agro Equipments</p>
+            <label for="tractor-days">Days:</label>
+            <input type="number" id="tractor-days" min="1" value="1">
+            <button onclick="calculateTotal('tractor', 2000)">Rent</button>
+        </div>
+    
+        <div class="machine">
+            <img src="harvester.jpg" alt="Harvester">
+            <h2>Harvester</h2>
+            <p>Price: ₹5000 per day</p>
+            <p>Trader: Green Harvesters Ltd.</p>
+            <label for="harvester-days">Days:</label>
+            <input type="number" id="harvester-days" min="1" value="1">
+            <button onclick="calculateTotal('harvester', 5000)">Rent</button>
+        </div>
+        <div class="machine">
+            <img src="plough.jpg" alt="Plough">
+            <h2>Plough</h2>
+            <p>Price: ₹1500 per day</p>
+            <p>Trader: Farmers' Choice</p>
+            <label for="plough-days">Days:</label>
+            <input type="number" id="plough-days" min="1" value="1">
+            <button onclick="calculateTotal('plough', 1500)">Rent</button>
+        </div>
+        <div class="machine">
+            <img src="seed-drill.jpg" alt="Seed Drill">
+            <h2>Seed Drill</h2>
+            <p>Price: ₹2500 per day</p>
+            <p>Trader: Precision Agri Tools</p>
+            <label for="seed-drill-days">Days:</label>
+            <input type="number" id="seed-drill-days" min="1" value="1">
+            <button onclick="calculateTotal('seed-drill', 2500)">Rent</button>
+        </div>
+        <div class="machine">
+            <img src="sprayer.jpg" alt="Sprayer">
+            <h2>Sprayer</h2>
+            <p>Price: ₹1200 per day</p>
+            <p>Trader: AgriTech Solutions</p>
+            <label for="sprayer-days">Days:</label>
+            <input type="number" id="sprayer-days" min="1" value="1">
+            <button onclick="calculateTotal('sprayer', 1200)">Rent</button>
+        </div>
+    </section>
+    <div class="total-price" id="total-price">Total: ₹0</div>
+    <script>
+        function calculateTotal(machine, price) {
+            let days = document.getElementById(machine + '-days').value;
+            let total = days * price;
+            document.getElementById('total-price').innerText = 'Total: ₹' + total;
+        }
+    </script>
+</body>
+</html>

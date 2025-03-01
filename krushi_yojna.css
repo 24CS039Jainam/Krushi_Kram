@@ -1,0 +1,130 @@
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    background: black;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+nav ul {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 0 0;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #e8f5e9;
+}
+
+/* Schemes Section */
+.schemes-section {
+    padding: 60px 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.schemes-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.schemes-section .intro {
+    font-size: 18px;
+    color: white;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Schemes List */
+.schemes-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.schemes-list li {
+    background-color: #333333;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    transition: box-shadow 0.3s ease;
+}
+
+.schemes-list li:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.schemes-list h3 {
+    font-size: 24px;
+    color: white;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.schemes-list p {
+    font-size: 16px;
+    color: white;
+}
+
+/* Footer */
+footer {
+    background: black;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 30px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}

@@ -1,0 +1,130 @@
+/* Global Styles */
+body {
+   
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color : gray;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    background-color: black;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+nav ul {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 0 0;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #e8f5e9;
+}
+
+/* Weather Section */
+.weather-section {
+    padding: 60px 0;
+    text-align: center;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.weather-section h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #2e7d32;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Weather Cards */
+.weather-card {
+    display: flex;
+    align-items: center;
+    color: white;
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.weather-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.weather-card img {
+    width: 50%;
+    height: auto;
+    border-radius: 10px 0 0 10px;
+}
+
+.weather-info {
+    padding: 20px;
+    text-align: left;
+    width: 50%;
+}
+
+.weather-info h3 {
+    font-size: 24px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.weather-info .temperature,
+.weather-info .humidity,
+.weather-info .wind-speed {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.weather-info .summary {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+/* Footer */
+footer {
+    background: black;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+    border-top: 1px solid 
+}

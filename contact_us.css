@@ -1,0 +1,164 @@
+/* Global Styles */
+/* Global Styles */
+body {
+    background: url('home_page1.jpeg');
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #333333; /* Light background for the whole page */
+}
+
+.container {
+    max-width: 1000px; /* Maximum width for content */
+    margin: 0 auto; /* Center align the container */
+    padding: 0 20px; /* Horizontal padding */
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    background: black;
+    color: #fff;
+    padding: 15px 0; /* Reduced padding for a sleeker look */
+}
+
+header h1 {
+    text-align: center;
+    margin: 0;
+    font-size: 36px; /* Larger font for the header */
+}
+
+nav ul {
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #e8f5e9;
+}
+
+/* Contact Section */
+.contact {
+    padding: 50px 0; /* Vertical padding for space around the section */
+    background: WHITE;
+}
+
+.contact .container {
+    max-width: 600px; /* Max width of form container */
+    margin: 0 auto; /* Center the form on the page */
+    text-align: center;
+    background-color: WHITE; /* Slightly different background for the form container */
+    padding: 40px; /* Padding inside the form container */
+    border-radius: 10px; /* Rounded corners for the form container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for elevation */
+}
+
+.contact h2 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: BLACK;
+}
+
+.contact p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: #666; /* Lighter color for description */
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.contact label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    text-align: left;
+    color: #444; /* Darker text for labels */
+}
+
+.contact input[type="text"],
+.contact input[type="email"],
+.contact textarea {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.contact input[type="text"]:focus,
+.contact input[type="email"]:focus,
+.contact textarea:focus {
+    border-color: black;
+    outline: none;
+}
+
+.contact textarea {
+    resize: vertical;
+    min-height: 120px;
+    max-height: 300px;
+}
+
+.contact button[type="submit"] {
+    padding: 12px 20px;
+    background: black;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.contact button[type="submit"]:hover {
+    background: #333333;
+    transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+.contact #formMessage {
+    display: none;
+    margin-top: 20px;
+    color: #333333;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background: #333333;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px; /* Space above footer */
+}
+
+footer p {
+    margin: 0;
+}
+
+.FUN{
+    color :white;
+    opacity : 0.3;
+    text-align: center;
+}

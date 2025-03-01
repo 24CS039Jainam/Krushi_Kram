@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="krushi_khoj.css">
+    <title>Farmer Input Form</title>
+</head>
+<body>
+
+<h1>Krushi Khoj</h1>
+<form id="farmerForm">
+    <div class="form-group">
+        <label for="region">Area or Region:</label>
+        <select id="region" name="region" required>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Jammu&Kashmir">Jammu & Kashmir</option>
+            <option value="Ladakh">Ladakh</option>
+            <option value="Bombay">Bombay</option>
+            <option value="Tamilnadu">Tamil Nadu</option>
+            <option value="West India">West India</option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="East India">East India</option>
+            <option value="Himalaya">Himalaya</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Deccan">Deccan</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Bhuj">Bhuj</option>
+            <option value="Rishikesh">Rishikesh</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="acreage">Acreage of Land (in acres):</label>
+        <input type="number" id="acreage" name="acreage" required>
+    </div>
+    <div class="form-group">
+        <label for="budget">Total Budget (in INR):</label>
+        <input type="number" id="budget" name="budget" required>
+    </div>
+    <div class="form-group">
+        <label for="season">Current Season:</label>
+        <select id="season" name="season" required>
+            <option value="">Select...</option>
+            <option value="spring">Spring</option>
+            <option value="summer">Summer</option>
+            <option value="fall">Fall</option>
+            <option value="winter">Winter</option>
+        </select>
+    </div>
+    <button type="button" onclick="generateReport()">Submit</button>
+</form>
+
+<div class="result" id="result"></div>
+<canvas id="budgetChart"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+function generateReport() {
+    // Retrieve form data
+    const region = document.getElementById('region').value;
+    const acreage = parseFloat(document.getElementById('acreage').value);
+    const budget = parseFloat(document.getElementById('budget').value);
+    const season = document.getElementById('season').value;
+
+    // Recommendations based on the season
+    let recommendedCrops = '';
+    let fertilizerSuggestions = '';
+
+    switch (season) {
+        case 'spring':
+            recommendedCrops = 'Spring is ideal for planting vegetables and fruits that thrive in warmer weather. Consider planting crops like tomatoes, cucumbers, lettuce, and peppers.';
+            fertilizerSuggestions = 'For spring crops, use a balanced fertilizer like 10-10-10 or a compost-based fertilizer to promote healthy growth and fruit development.';
+            break;
+        case 'summer':
+            recommendedCrops = 'In summer, focus on heat-tolerant crops. Corn, beans, and melons are excellent choices. Ensure proper irrigation to manage the heat.';
+            fertilizerSuggestions = 'A slow-release nitrogen fertilizer or a high-phosphorus fertilizer will be beneficial for summer crops to enhance growth and yield.';
+            break;
+        case 'fall':
+            recommendedCrops = 'Fall is great for planting crops that can handle cooler temperatures. Consider planting spinach, kale, and other leafy greens.';
+            fertilizerSuggestions = 'Use a balanced or potassium-rich fertilizer to help your fall crops withstand the cooler temperatures and enhance root development.';
+            break;
+        case 'winter':
+            recommendedCrops = 'Winter is typically a time for planning and soil preparation. Use this time to plan your spring crops and enrich the soil with organic matter.';
+            fertilizerSuggestions = 'Prepare your soil with compost or well-rotted manure to ensure it’s ready for the upcoming planting season.';
+            break;
+    }
+
+    // Creating Pie Chart
+    const ctx = document.getElementById('budgetChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Seeds and Plants', 'Fertilizers', 'Equipment', 'Miscellaneous'],
+            datasets: [{
+                label: 'Budget Allocation',
+                data: [
+                    budget * 0.4, // Seeds and Plants
+                    budget * 0.3, // Fertilizers
+                    budget * 0.2, // Equipment
+                    budget * 0.1  // Miscellaneous
+                ],
+                backgroundColor: [
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(153, 102, 255, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return tooltipItem.label + ': $' + tooltipItem.raw.toFixed(2);
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // Detailed output
+    let resultText = ''; // Initialize resultText variable
+    resultText += `<p>Your region: ${region}</p>`;
+    resultText += `<p>Acreage of land available: ${acreage} acres</p>`;
+    resultText += `<p>Total budget: $${budget.toFixed(2)}</p>`;
+    resultText += `<p>Current season: ${season.charAt(0).toUpperCase() + season.slice(1)}</p>`;
+    resultText += `<p>${recommendedCrops}</p>`;
+    resultText += `<p>Recommended fertilizer: ${fertilizerSuggestions}</p>`;
+    resultText += `<p>Based on your budget allocation, we recommend focusing on essential areas first:</p>`;
+    resultText += `<ul><li>Seeds and Plants: $${(budget * 0.4).toFixed(2)}</li>`;
+    resultText += `<li>Fertilizers: $${(budget * 0.3).toFixed(2)}</li>`;
+    resultText += `<li>Equipment: $${(budget * 0.2).toFixed(2)}</li>`;
+    resultText += `<li>Miscellaneous: $${(budget * 0.1).toFixed(2)}</li></ul>`;
+    resultText += `<p>By prioritizing these areas, you will be well-prepared to optimize your crop yield and manage your resources effectively throughout the season.</p>`;
+
+    document.getElementById('result').innerHTML = resultText;
+}
+</script>
+
+</body>
+</html>
