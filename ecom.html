@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Explore high-quality farming equipment, tools, and supplies at Farmer's E-commerce Store. Shop tractors, fertilizers, seeds, and more for your agricultural needs."
+    />
+    <title>Farmer's E-commerce Store</title>
+    <link rel="stylesheet" href="ecom.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Krushi's E-commerce Store</h1>
+        <nav>
+          <ul>
+            <li><a href="#" onclick="filterProducts('all')">All</a></li>
+            <li>
+              <a href="#" onclick="filterProducts('vegetable')">Vegetables</a>
+            </li>
+            <li><a href="#" onclick="filterProducts('fruit')">Fruits</a></li>
+            <li><a href="#" onclick="filterProducts('tool')">Tools</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="ecommerce-section">
+        <div class="container">
+          <h2>Explore Our Products</h2>
+          <div class="product-grid" id="product-grid">
+            <div class="product-card vegetable">
+              <img
+                src="https://cdn.mos.cms.futurecdn.net/r8NK24bmcMgSib5zWKKQkW-1200-80.jpg"
+                alt="Broccoli"
+              />
+              <div class="product-info">
+                <h3>Broccoli</h3>
+                <p class="price">Rs.120</p>
+                <button
+                  onclick="addToCart('Broccoli', 120, 'https://cdn.mos.cms.futurecdn.net/r8NK24bmcMgSib5zWKKQkW-1200-80.jpg')"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="product-card vegetable">
+              <img
+                src="https://www.asiafarming.com/wp-content/uploads/2024/05/How-I-Make-My-Peppers-Grow-Faster2-1024x682.jpg"
+                alt="Capsicum"
+              />
+              <div class="product-info">
+                <h3>Capsicum</h3>
+                <p class="price">Rs.105</p>
+                <button
+                  onclick="addToCart('Capsicum', 105, 'https://www.asiafarming.com/wp-content/uploads/2024/05/How-I-Make-My-Peppers-Grow-Faster2-1024x682.jpg')"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="product-card vegetable">
+              <img
+                src="https://t3.ftcdn.net/jpg/02/28/33/96/240_F_228339660_znkY8wXvjXNnqylBwUwwffT1E5yerjBg.jpg"
+                alt="Carrot"
+              />
+              <div class="product-info">
+                <h3>Carrot</h3>
+                <p class="price">Rs.80</p>
+                <button
+                  onclick="addToCart('Carrot', 80, 'https://www.healthifyme.com/blog/wp-content/uploads/2022/02/Carrots-1.jpg')"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="product-card vegetable">
+              <img
+                src="https://t4.ftcdn.net/jpg/05/37/04/61/240_F_537046123_s8JVn2NrClPQDOryhSm8jonYZPfIzPRX.jpg"
+                alt="Tomato"
+              />
+              <div class="product-info">
+                <h3>Tomato</h3>
+                <p class="price">Rs.60</p>
+                <button
+                  onclick="addToCart('Tomato', 60, 'https://www.gardeningknowhow.com/wp-content/uploads/2021/05/tomato.jpg')"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="product-card vegetable">
+              <img
+                src="https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8U3BpbmFjaHxlbnwwfHwwfHx8MA%3D%3D"
+                alt="Spinach"
+              />
+              <div class="product-info">
+                <h3>Spinach</h3>
+                <p class="price">Rs.40</p>
+                <button
+                  onclick="addToCart('Spinach', 40, 'https://www.healthifyme.com/blog/wp-content/uploads/2022/02/Spinach-1.jpg')"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="product-card vegetable">
+              <img
+                src="https://t3.ftcdn.net/jpg/05/50/28/78/240_F_550287830_0zRybffL4X1kv6ZjgBrHrtCnQt9hExNj.jpg"
+                alt="Potato"
+              />
+              <div class="product-info">
+                <h3>Potato</h3>
+                <p class="price">Rs.50</p>
+                <button
+                  onclick="addToCart('Potato', 50, 'https://www.almanac.com/sites/default/files/styles/primary_image_in_article/public/image_nodes/potatoes.jpg')"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="product-card vegetable">
+              <img
+                src="https://images.unsplash.com/photo-1587411768638-ec71f8e33b78?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y3VjdW1iZXJ8ZW58MHx8MHx8fDA%3D"
+                alt="Cucumber"
+              />
+              <div class="product-info">
+                <h3>Cucumber</h3>
+                <p class="price">Rs.70</p>
+                <button
+                  onclick="addToCart('Cucumber', 70, 'https://stock.adobe.com/images/ripe-cucumber-isolated-on-white-background/266683754')"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="product-card vegetable">
+              <img
+                src="https://as1.ftcdn.net/v2/jpg/00/91/30/42/1000_F_91304200_GWKgCZTgxvN7KCNTExaXB6CfyvxGpT6v.jpg"
+                alt="Onion"
+              />
+              <div class="product-info">
+                <h3>Onion</h3>
+                <p class="price">Rs.55</p>
+                <button
+                  onclick="addToCart('Onion', 55, 'https://www.almanac.com/sites/default/files/styles/primary_image_in_article/public/image_nodes/onions.jpg')"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="product-card vegetable">
+              <img
+                src="https://as1.ftcdn.net/v2/jpg/01/91/55/42/1000_F_191554261_Kfn9mPkFP2lRmNuSkLkoe6yMnOdC1GUC.jpg"
+                alt="Garlic"
+              />
+              <div class="product-info">
+                <h3>Garlic</h3>
+                <p class="price">Rs.90</p>
+                <button
+                  onclick="addToCart('Garlic', 90, 'https://www.gardeningknowhow.com/wp-content/uploads/2021/05/garlic.jpg')"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="product-card vegetable">
+              <img
+                src="https://t4.ftcdn.net/jpg/00/57/13/63/240_F_57136319_lcUZ6ETec1DbJMcSXPDdWgB8xFaYDOwp.jpg"
+                alt="Pumpkin"
+              />
+              <div class="product-info">
+                <h3>Pumpkin</h3>
+                <p class="price">Rs.110</p>
+                <button
+                  onclick="addToCart('Pumpkin', 110, 'https://www.almanac.com/sites/default/files/styles/primary_image_in_article/public/image_nodes/pumpkin.jpg')"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="product-card vegetable">
+              <img src="https://t4.ftcdn.net/jpg/00/81/47/99/240_F_81479900_83QtbKzcMnBE564LwrC80CmX3FVINNfL.jpg" alt="Radish" />
+              <div class="product-info">
+                <h3>Radish</h3>
+                <p class="price">Rs.45</p>
+                <button
+                  onclick="addToCart('Radish', 45, 'https://www.example.com/radish.jpg')"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="product-card vegetable">
+              <img src="https://t3.ftcdn.net/jpg/03/58/94/72/240_F_358947207_bOEQt74sKb6x6ONbNnJZpPDtuymVT6Dv.jpg" alt="Beetroot" />
+              <div class="product-info">
+                <h3>Beetroot</h3>
+                <p class="price">Rs.65</p>
+                <button
+                  onclick="addToCart('Beetroot', 65, 'https://www.example.com/beetroot.jpg')"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="product-card vegetable">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRugMjQnZFC7VIUADeecJbsKgsekwcuu8y5pa2cwHGPj_DTPBCD6ftVQ3DLdoH_rHsbXaDmszrxV5YAWf2W_S_glg" alt="Cabbage" />
+              <div class="product-info">
+                <h3>Cabbage</h3>
+                <p class="price">Rs.75</p>
+                <button
+                  onclick="addToCart('Cabbage', 75, 'https://www.example.com/cabbage.jpg')"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="product-card vegetable">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Chou-fleur_02.jpg"
+                alt="Cauliflower"
+              />
+              <div class="product-info">
+                <h3>Cauliflower</h3>
+                <p class="price">Rs.85</p>
+                <button
+                  onclick="addToCart('Cauliflower', 85, 'https://www.example.com/cauliflower.jpg')"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="product-card vegetable">
+              <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT02qjx8I12R1aouaJvkbIRzvCucMJ3DqWCCzZFTPb4rcyKBXPdD9PTKQNv2JfXr8LF_b6wNLOvKByQPSKAGvwLDQ" alt="Lettuce" />
+              <div class="product-info">
+                <h3>Peas</h3>
+                <p class="price">Rs.95</p>
+                <button
+                  onclick="addToCart('Peas', 95, 'https://www.example.com/peas.jpg')"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+
+            <!-- Fruits -->
+            <div class="product-card fruit">
+              <img
+                src="https://i.imghippo.com/files/gWNm1633rK.jpg"
+                alt="Apple"
+              />
+              <div class="product-info">
+                <h3>Apple</h3>
+                <p class="price">Rs.100</p>
+                <button
+                  onclick="addToCart('Apple', 100, 'https://i.imghippo.com/files/gWNm1633rK.jpg')"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="product-card fruit">
+              <img
+                src="https://organicmandya.com/cdn/shop/files/BananaPachabale.jpg?v=1721369894&width=1000"
+                alt="Banana"
+              />
+              <div class="product-info">
+                <h3>Banana</h3>
+                <p class="price">Rs.50</p>
+                <button
+                  onclick="addToCart('Banana', 50, 'https://www.healthifyme.com/blog/wp-content/uploads/2022/02/Bananas-1.jpg')"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="product-card fruit">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Oranges_-_whole-halved-segment.jpg/800px-Oranges_-_whole-halved-segment.jpg"
+                alt="Orange"
+              />
+              <div class="product-info">
+                <h3>Orange</h3>
+                <p class="price">Rs.80</p>
+                <button
+                  onclick="addToCart('Orange', 80, 'https://www.gardeningknowhow.com/wp-content/uploads/2021/05/orange.jpg')"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="product-card fruit">
+              <img
+                src="https://5.imimg.com/data5/SELLER/Default/2023/9/344928632/OW/RQ/XC/25352890/yellow-mango.jpeg"
+                alt="Mango"
+              />
+              <div class="product-info">
+                <h3>Mango</h3>
+                <p class="price">Rs.150</p>
+                <button
+                  onclick="addToCart('Mango', 150, 'https://www.almanac.com/sites/default/files/styles/primary_image_in_article/public/image_nodes/mango.jpg')"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="product-card fruit">
+              <img
+                src="https://fruitboxco.com/cdn/shop/products/asset_22_1_250x.jpg?v=1643137805"
+                alt="Grapes"
+              />
+              <div class="product-info">
+                <h3>Grapes</h3>
+                <p class="price">Rs.120</p>
+                <button
+                  onclick="addToCart('Grapes', 120, 'https://www.healthifyme.com/blog/wp-content/uploads/2022/02/Grapes-1.jpg')"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="product-card fruit">
+              <img
+                src="https://organicmandya.com/cdn/shop/files/Pineapple.jpg?v=1721375225&width=1500"
+                alt="Pineapple"
+              />
+              <div class="product-info">
+                <h3>Pineapple</h3>
+                <p class="price">Rs.130</p>
+                <button
+                  onclick="addToCart('Pineapple', 130, 'https://www.gardeningknowhow.com/wp-content/uploads/2021/05/pineapple.jpg')"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="product-card fruit">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Garden_strawberry_%28Fragaria_%C3%97_ananassa%29_single2.jpg/640px-Garden_strawberry_%28Fragaria_%C3%97_ananassa%29_single2.jpg"
+                alt="Strawberry"/>
+              <div class="product-info">
+                <h3>Strawberry</h3>
+                <p class="price">Rs.200</p>
+                <button
+                  onclick="addToCart('Strawberry', 200, 'https://www.almanac.com/sites/default/files/styles/primary_image_in_article/public/image_nodes/strawberries.jpg')"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="product-card fruit">
+              <img
+                src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRof5g0glCLbTaZ0ETEQrFcPd8KALcRjOVShI4wUTH6AsQl6vnOvKqQI6dPsefcO0cvDeGXbU3FRkPsv-ZXkIRfLA"
+                alt="Watermelon"
+              />
+              <div class="product-info">
+                <h3>Watermelon</h3>
+                <p class="price">Rs.90</p>
+                <button
+                  onclick="addToCart('Watermelon', 90, 'https://www.healthifyme.com/blog/wp-content/uploads/2022/02/Watermelon-1.jpg')"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="product-card fruit">
+              <img
+                src="https://cdn.britannica.com/45/126445-050-4C0FA9F6/Kiwi-fruit.jpg"
+                alt="Kiwi"
+              />
+              <div class="product-info">
+                <h3>Kiwi</h3>
+                <p class="price">Rs.180</p>
+                <button
+                  onclick="addToCart('Kiwi', 180, 'https://www.gardeningknowhow.com/wp-content/uploads/2021/05/kiwi.jpg')"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div
+      id="cart-dashboard"
+      style="
+        display: none;
+        position: fixed;
+        top: 10%;
+        left: 30%;
+        background: #fff;
+        padding: 20px;
+        border: 1px solid #ccc;
+      "
+    >
+      <h2>Shopping Cart</h2>
+      <ul id="cart-items"></ul>
+      <button onclick="viewSelectedItems()">View Selected Items</button>
+      <button onclick="closeCart()">Close</button>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2024 Krushi Kram. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      let cart = [];
+
+      function addToCart(name, price, image) {
+        cart.push({ name, price, image });
+        updateCart();
+        document.getElementById("cart-dashboard").style.display = "block";
+      }
+
+      function updateCart() {
+        const cartItems = document.getElementById("cart-items");
+        cartItems.innerHTML = "";
+        cart.forEach((item, index) => {
+          const li = document.createElement("li");
+          li.textContent = `${item.name} - Rs.${item.price}`;
+          const removeBtn = document.createElement("button");
+          removeBtn.textContent = "Remove";
+          removeBtn.onclick = () => removeFromCart(index);
+          li.appendChild(removeBtn);
+          cartItems.appendChild(li);
+        });
+      }
+
+      function removeFromCart(index) {
+        cart.splice(index, 1);
+        updateCart();
+      }
+
+      function closeCart() {
+        document.getElementById("cart-dashboard").style.display = "none";
+      }
+
+      function filterProducts(category) {
+        const products = document.querySelectorAll(".product-card");
+        products.forEach((product) => {
+          if (category === "all" || product.classList.contains(category)) {
+            product.style.display = "block";
+          } else {
+            product.style.display = "none";
+          }
+        });
+      }
+
+      function viewSelectedItems() {
+        // Save cart data to localStorage
+        localStorage.setItem("cart", JSON.stringify(cart));
+        // Redirect to the selected items page
+        window.location.href = "selected-items.html";
+      }
+    </script>
+  </body>
+</html>

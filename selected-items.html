@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selected Items</title>
+    <link rel="stylesheet" href="ecom.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Selected Items</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class="selected-items-section">
+            <div class="container">
+                <h2>Your Selected Items</h2>
+                <div id="selected-items-list"></div>
+                <p id="total-cost"></p>
+                <button onclick="proceedToPayment()">Proceed to Payment</button>
+            </div>
+        </section>
+
+        <div id="qr-modal" style="display:none; position:fixed; top:10%; left:30%; background:#fff; padding:20px; border:1px solid #ccc;">
+            <h2>Scan to Pay</h2>
+            <div id="qr-code"></div>
+            <button onclick="closeQRModal()">Close</button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Krushi Kram. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Retrieve cart data from localStorage
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Display selected items
+        const selectedItemsList = document.getElementById('selected-items-list');
+        let totalCost = 0;
+
+        cart.forEach(item => {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'selected-item';
+            itemDiv.innerHTML = `
+                <img src="${item.image}" alt="${item.name}">
+                <h3>${item.name}</h3>
+                <p>Rs.${item.price}</p>
+            `;
+            selectedItemsList.appendChild(itemDiv);
+            totalCost += item.price;
+        });
+
+        // Display total cost
+        document.getElementById('total-cost').textContent = `Total Cost: Rs.${totalCost}`;
+
+        function proceedToPayment() {
+            const billSummary = `Bill Summary:\n\n` +
+                cart.map((item, index) => `${index + 1}. ${item.name} - Rs.${item.price}`).join('\n') +
+                `\n\nTotal Amount: Rs.${totalCost}`;
+
+            const qrCodeElement = document.getElementById('qr-code');
+            qrCodeElement.innerHTML = '';
+            QRCode.toCanvas(billSummary, { width: 200 }, (error, canvas) => {
+                if (error) {
+                    console.error('Error generating QR code:', error);
+                    alert('Failed to generate QR code. Please try again.');
+                } else {
+                    qrCodeElement.appendChild(canvas);
+                }
+            });
+
+            document.getElementById('qr-modal').style.display = 'block';
+        }
+
+        function closeQRModal() {
+            document.getElementById('qr-modal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

@@ -5,133 +5,216 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Machinery Rental</title>
     <link rel="stylesheet" href="Machine_Rental.css">
+    <style>
+        /* CSS for the total box */
+        .total-box {
+            border: 2px solid #000; /* Rectangle border */
+            padding: 15px; /* Spacing inside the box */
+            margin: 20px auto; /* Center the box */
+            width: 300px; /* Width of the box */
+            text-align: center; /* Center-align text */
+            background-color: #f9f9f9; /* Light background color */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        .total-box h2 {
+            margin-top: 0; /* Remove default margin for h2 */
+        }
+
+        .total-box p {
+            margin: 10px 0; /* Spacing between paragraphs */
+            font-size: 18px; /* Larger font size */
+            font-weight: bold; /* Bold text */
+        }
+
+        /* CSS for selected machine details */
+        .selected-machine-details {
+            border: 2px solid #000; /* Rectangle border */
+            padding: 15px; /* Spacing inside the box */
+            margin: 20px auto; /* Center the box */
+            width: 300px; /* Width of the box */
+            text-align: center; /* Center-align text */
+            background-color: #f9f9f9; /* Light background color */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        .selected-machine-details h3 {
+            margin-top: 0; /* Remove default margin for h3 */
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Rent Heavy Machinery</h1>
     </header>
     <section class="rental-container">
-        
+
         <!-- Tractor -->
         <div class="machine-box">
-            <img src="https://www.deere.co.in/assets/images/region-1/products/tractors/john-deere-d-series-tractor.jpg" alt="Tractor">
+            <img src="https://www.deere.co.in/assets/images/region-1/products/tractors/john-deere-d-series-tractor.jpg " alt="Tractor">
             <h2>Tractor</h2>
             <label for="tractor-company">Select Company:</label>
-            <select id="tractor-company">
-                <option value="2000" data-company="Rajesh Agro Equipments" data-owner="24cs015@charusat.edu.in">
-                    Rajesh Agro Equipments - ₹2000/day
+            <select id="tractor-company" onchange="showSelectedMachine('tractor')">
+                <option value="2000" data-company="Rajesh Agro Equipments" data-owner="24cs015@charusat.edu.in" data-quantity="5">
+                    Rajesh Agro Equipments - ₹2000/day (Available: 5)
                 </option>
-                <option value="2200" data-company="Green Harvest" data-owner="24cs030@charusat.edu.in">
-                    Green Harvest - ₹2200/day
+                <option value="2200" data-company="Green Harvest" data-owner="24cs030@charusat.edu.in" data-quantity="3">
+                    Green Harvest - ₹2200/day (Available: 3)
                 </option>
-                <option value="2100" data-company="FarmTech Solutions" data-owner="24cs039@charusat.edu.in">
-                    FarmTech Solutions - ₹2100/day
+                <option value="2100" data-company="FarmTech Solutions" data-owner="24cs039@charusat.edu.in" data-quantity="7">
+                    FarmTech Solutions - ₹2100/day (Available: 7)
                 </option>
             </select>
             <label for="tractor-days">Days:</label>
             <input type="number" id="tractor-days" min="1" value="1">
             <button onclick="handleRent('tractor')">Rent</button>
-            <p id="tractor-total">Total: ₹0</p>
+            <p id="tractor-status"></p> <!-- Status of the application -->
         </div>
-        
+
         <!-- Harvester -->
         <div class="machine-box">
-            <img src="https://www.deere.com.au/assets/images/region-4/products/harvesting/STR_8279-S780-740D-1366x768.jpg" alt="Harvester">
+            <img src="https://www.deere.com.au/assets/images/region-4/products/harvesting/STR_8279-S780-740D-1366x768.jpg " alt="Harvester">
             <h2>Harvester</h2>
             <label for="harvester-company">Select Company:</label>
-            <select id="harvester-company">
-                <option value="5000" data-company="Green Harvesters" data-owner="24cs015@charusat.edu.in">
-                    Green Harvesters - ₹5000/day
+            <select id="harvester-company" onchange="showSelectedMachine('harvester')">
+                <option value="5000" data-company="Green Harvesters" data-owner="24cs015@charusat.edu.in" data-quantity="2">
+                    Green Harvesters - ₹5000/day (Available: 2)
                 </option>
-                <option value="5200" data-company="Agri Machinery" data-owner="24cs039@charusat.edu.in">
-                    Agri Machinery - ₹5200/day
+                <option value="5200" data-company="Agri Machinery" data-owner="24cs039@charusat.edu.in" data-quantity="4">
+                    Agri Machinery - ₹5200/day (Available: 4)
                 </option>
             </select>
             <label for="harvester-days">Days:</label>
             <input type="number" id="harvester-days" min="1" value="1">
             <button onclick="handleRent('harvester')">Rent</button>
-            <p id="harvester-total">Total: ₹0</p>
+            <p id="harvester-status"></p> <!-- Status of the application -->
         </div>
 
         <!-- Plough -->
         <div class="machine-box">
-            <img src="https://plus.unsplash.com/premium_photo-1661808606874-1fdc96c1a265?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGxvdWdoaW5nfGVufDB8fDB8fHww" alt="Plough">
+            <img src="https://plus.unsplash.com/premium_photo-1661808606874-1fdc96c1a265?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGxvdWdoaW5nfGVufDB8fDB8fHww " alt="Plough">
             <h2>Plough</h2>
             <label for="plough-company">Select Company:</label>
-            <select id="plough-company">
-                <option value="1500" data-company="AgriTech Solutions" data-owner="24cs045@charusat.edu.in">
-                    AgriTech Solutions - ₹1500/day
+            <select id="plough-company" onchange="showSelectedMachine('plough')">
+                <option value="1500" data-company="Farmers' Choice" data-owner="24cs030@charusat.edu.in" data-quantity="6">
+                    Farmers' Choice - ₹1500/day (Available: 6)
                 </option>
-                <option value="1600" data-company="FarmPro" data-owner="24cs050@charusat.edu.in">
-                    FarmPro - ₹1600/day
+                <option value="1600" data-company="Plough Master" data-owner="24cs015@charusat.edu.in" data-quantity="8">
+                    Plough Master - ₹1600/day (Available: 8)
                 </option>
             </select>
             <label for="plough-days">Days:</label>
             <input type="number" id="plough-days" min="1" value="1">
             <button onclick="handleRent('plough')">Rent</button>
-            <p id="plough-total">Total: ₹0</p>
+            <p id="plough-status"></p> <!-- Status of the application -->
         </div>
 
         <!-- Seed Drill -->
         <div class="machine-box">
-            <img src="https://thumbs.dreamstime.com/b/modern-case-tractor-drilling-seed-field-vaderstad-drill-red-pulling-planting-new-front-hopper-combi-vadersad-fh-tempo-v-70255814.jpg?w=768" alt="Seed Drill">
+            <img src="https://thumbs.dreamstime.com/b/modern-case-tractor-drilling-seed-field-vaderstad-drill-red-pulling-planting-new-front-hopper-combi-vadersad-fh-tempo-v-70255814.jpg?w=768 " alt="Seed Drill">
             <h2>Seed Drill</h2>
             <label for="seed-drill-company">Select Company:</label>
-            <select id="seed-drill-company">
-                <option value="1800" data-company="Agri Machinery Co." data-owner="24cs060@charusat.edu.in">
-                    Agri Machinery Co. - ₹1800/day
+            <select id="seed-drill-company" onchange="showSelectedMachine('seed-drill')">
+                <option value="2500" data-company="Precision Agri" data-owner="24cs039@charusat.edu.in" data-quantity="3">
+                    Precision Agri - ₹2500/day (Available: 3)
                 </option>
-                <option value="1900" data-company="Green Equipment" data-owner="24cs065@charusat.edu.in">
-                    Green Equipment - ₹1900/day
+                <option value="2700" data-company="Drill Master" data-owner="24cs015@charusat.edu.in" data-quantity="5">
+                    Drill Master - ₹2700/day (Available: 5)
                 </option>
             </select>
             <label for="seed-drill-days">Days:</label>
             <input type="number" id="seed-drill-days" min="1" value="1">
             <button onclick="handleRent('seed-drill')">Rent</button>
-            <p id="seed-drill-total">Total: ₹0</p>
+            <p id="seed-drill-status"></p> <!-- Status of the application -->
         </div>
 
         <!-- Sprayer -->
         <div class="machine-box">
-            <img src="https://www.deere.com/assets/images/common/our-company/news/agriculture/2021mar02-john-deere-launches-see-and-spray-select-1-1366x768.jpg" alt="Sprayer">
+            <img src="https://www.deere.com/assets/images/common/our-company/news/agriculture/2021mar02-john-deere-launches-see-and-spray-select-1-1366x768.jpg " alt="Sprayer">
             <h2>Sprayer</h2>
             <label for="sprayer-company">Select Company:</label>
-            <select id="sprayer-company">
-                <option value="1200" data-company="CropCare Solutions" data-owner="24cs070@charusat.edu.in">
-                    CropCare Solutions - ₹1200/day
+            <select id="sprayer-company" onchange="showSelectedMachine('sprayer')">
+                <option value="1200" data-company="AgriTech" data-owner="24cs030@charusat.edu.in" data-quantity="4">
+                    AgriTech - ₹1200/day (Available: 4)
                 </option>
-                <option value="1300" data-company="SprayMaster" data-owner="24cs075@charusat.edu.in">
-                    SprayMaster - ₹1300/day
+                <option value="1300" data-company="Spray Master" data-owner="24cs039@charusat.edu.in" data-quantity="6">
+                    Spray Master - ₹1300/day (Available: 6)
                 </option>
             </select>
             <label for="sprayer-days">Days:</label>
             <input type="number" id="sprayer-days" min="1" value="1">
             <button onclick="handleRent('sprayer')">Rent</button>
-            <p id="sprayer-total">Total: ₹0</p>
+            <p id="sprayer-status"></p> <!-- Status of the application -->
         </div>
 
     </section>
 
+    <!-- Total Cost and Quantity Section -->
+    <div class="total-box">
+        <h2>Total Summary</h2>
+        <p>Total Cost: ₹<span id="total-cost">0</span></p>
+        <p>Total Quantity Rented: <span id="total-quantity">0</span></p>
+    </div>
+
+    <!-- Selected Machine Details Section -->
+    <div class="selected-machine-details">
+        <h3>Selected Machine Details</h3>
+        <p id="selected-machine-name">Machine: None</p>
+        <p id="selected-machine-company">Company: None</p>
+        <p id="selected-machine-price">Price: ₹0/day</p>
+        <p id="selected-machine-quantity">Available: 0</p>
+    </div>
+
     <script>
+        let totalCost = 0; // Track total cost
+        let totalQuantity = 0; // Track total quantity rented
+
         function handleRent(machine) {
             let companySelect = document.getElementById(machine + "-company");
             let selectedOption = companySelect.options[companySelect.selectedIndex];
-            
+
             let price = parseInt(selectedOption.value);
             let trader = selectedOption.getAttribute("data-company");
             let ownerEmail = selectedOption.getAttribute("data-owner");
             let days = document.getElementById(machine + "-days").value;
+            let availableQuantity = parseInt(selectedOption.getAttribute("data-quantity"));
+
+            if (availableQuantity <= 0) {
+                alert(`Sorry, no ${machine}(s) are available from ${trader}.`);
+                return;
+            }
+
             let total = days * price;
-            
-            let confirmRent = confirm(`Are you sure you want to rent the ${machine} from ${trader} for ${days} days?\nTotal cost: ₹${total}`);
-            
+
+            let confirmRent = confirm(`Are you sure you want to rent 1 ${machine} from ${trader} for ${days} days?\nTotal cost: ₹${total}`);
+
             if (confirmRent) {
+                // Update the available quantity
+                selectedOption.setAttribute("data-quantity", availableQuantity - 1);
+                selectedOption.text = `${trader} - ₹${price}/day (Available: ${availableQuantity - 1})`;
+
+                // Update total cost and quantity
+                totalCost += total;
+                totalQuantity += 1;
+
+                // Update the total cost and quantity display
+                document.getElementById("total-cost").textContent = totalCost;
+                document.getElementById("total-quantity").textContent = totalQuantity;
+
+                // Send the rental request
                 sendEmail(machine, price, trader, days, total, ownerEmail);
+
+                // Update the status of the application
+                let statusElement = document.getElementById(machine + "-status");
+                statusElement.textContent = `Application sent to rent 1 ${machine} from ${trader}.`;
+                statusElement.style.color = "green";
             } else {
                 alert(`Rental request for ${machine} was canceled.`);
             }
         }
-        
+
         function sendEmail(machine, price, trader, days, total, ownerEmail) {
             let subject = `Machinery Rental Request: ${machine}`;
             let body = `Hello,\n\nI would like to rent the following machinery:\n\n` +
@@ -141,11 +224,28 @@
                        `💵 Total Price: ₹${total}\n` +
                        `👨‍🌾 Trader: ${trader}\n\n` +
                        `Please confirm the availability.\n\nThank you!`;
-            
+
+            // Open email client with pre-filled details
             window.location.href = `mailto:${ownerEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            
-            alert(`Your rental request for ${machine} has been sent to ${ownerEmail}.`);
+
+            alert(`Your rental request for 1 ${machine} has been sent to ${ownerEmail}.`);
+        }
+
+        function showSelectedMachine(machine) {
+            let companySelect = document.getElementById(machine + "-company");
+            let selectedOption = companySelect.options[companySelect.selectedIndex];
+
+            let price = parseInt(selectedOption.value);
+            let trader = selectedOption.getAttribute("data-company");
+            let availableQuantity = parseInt(selectedOption.getAttribute("data-quantity"));
+
+            // Update the selected machine details
+            document.getElementById("selected-machine-name").textContent = `Machine: ${machine}`;
+            document.getElementById("selected-machine-company").textContent = `Company: ${trader}`;
+            document.getElementById("selected-machine-price").textContent = `Price: ₹${price}/day`;
+            document.getElementById("selected-machine-quantity").textContent = `Available: ${availableQuantity}`;
         }
     </script>
+
 </body>
 </html>
